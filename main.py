@@ -1,3 +1,3 @@
-from view.StockConsoleView import StockConsoleView
+from view.StockView import StockView
 
-StockConsoleView().consoleController()
+StockView()

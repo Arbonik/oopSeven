@@ -86,4 +86,3 @@ class StockView:
         self.petstList.update()
 
 
-StockView()
