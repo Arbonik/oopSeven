@@ -1,6 +1,6 @@
 from random import Random
 
-from Resource import Resource, Shaurma, Meat, Car
+from model.Resource import Resource, Shaurma, Meat, Car
 
 
 class Pest:
@@ -41,7 +41,7 @@ class Fixick(Pest):
     def __init__(self):
         self.name = "Фиксик (любит машину и шаурму)"
         self.health = 100
-        self.lovelyResource = [Car(), Meat()]
+        self.lovelyResource = [Car(), Shaurma()]
 
 
 class TrueEvil(Pest):

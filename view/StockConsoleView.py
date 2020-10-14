@@ -1,5 +1,5 @@
-from Resource import Resource
-from Stock import Stock
+from model.Resource import Resource
+from model.Stock import Stock
 
 
 class StockConsoleView:

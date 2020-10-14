@@ -1,10 +1,17 @@
 from random import Random
 
-from Pest import Pest
-from Resource import Resource
+from model.Pest import Pest, Rat
+from model.Resource import Resource, Shaurma, Meat
 
 
 class Stock:
+
+    @staticmethod
+    def instance():
+        ret = Stock()
+        ret.products = []
+        ret.pests = []
+        return ret
 
     def __init__(self):
 
@@ -31,10 +38,7 @@ class Stock:
             sum += i.cost
         return sum
 
-    def buyPoison(self):
-        print("Сколько направить на борьбу с вредителями?")
-        print("Доступно средств: " + str(self.money))
-        buy = int(input())
+    def buyPoison(self, buy):
         if buy <= self.money:
             self.money -= buy
             self.poison += buy

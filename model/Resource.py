@@ -1,14 +1,17 @@
+from enum import Enum
+
+
 class Resource:
 
     def __init__(self):
         self.name = ""
         # Стоимость размещения на складе
         self.cost = 10
-    #     Количество треуемого места
+        #     Количество треуемого места
         self.capacity = 10
 
     def __str__(self) -> str:
-        return " - " + self.name + "(Доход: " + str(self.cost) + " занимаемое место: " + str(self.capacity) + ")"
+        return self.name + " - " + self.name + "(Доход: " + str(self.cost) + " занимаемое место: " + str(self.capacity) + ")"
 
     @staticmethod
     def instance():
@@ -24,12 +27,14 @@ class Resource:
         elif p == 3:
             return Car()
 
+
 class Shaurma(Resource):
 
     def __init__(self):
         self.name = "Шаурма"
         self.cost = 5
         self.capacity = 5
+
 
 class Car(Resource):
 
@@ -38,6 +43,7 @@ class Car(Resource):
         self.cost = 120
         self.capacity = 50
 
+
 class Meat(Resource):
 
     def __init__(self):
@@ -45,3 +51,20 @@ class Meat(Resource):
         self.cost = 30
         self.capacity = 10
 
+
+class ResourceDepository(Enum):
+    SHAURMA = Shaurma()
+    CAR = Car()
+    MEAT = Meat()
+
+    @staticmethod
+    def get(index):
+        if index == 0:
+            return ResourceDepository.SHAURMA.value
+        elif index == 1:
+            return ResourceDepository.CAR.value
+        elif index == 2:
+            return ResourceDepository.MEAT.value
+
+    def __str__(self):
+        return str(self.value)
